@@ -14,9 +14,15 @@
         "symfony/yaml": "5.2.*"
     },
     "require-dev": {
+        "symfony/stopwatch": "^5.2",
+        "symfony/twig-bundle": "^5.2",
+        "symfony/web-profiler-bundle": "^5.2"
     },
     "config": {
         "optimize-autoloader": true,
+        "platform": {
+            "php": "8.0.1"
+        },
         "preferred-install": {
             "*": "dist"
         },
