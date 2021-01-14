@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  app:
+    image: brpauwels/php:8.0-xdebug
+    volumes:
+      - ../..:/opt/app:cached
+    environment:
+      - VIRTUAL_HOST=weekly-meal.docker
+      - VIRTUAL_PORT=8080
+      - CORS_ENABLED=true
+    env_file:
+      - ../../.env
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: library/postgres:13-alpine
+    environment:
+      - POSTGRES_USER=weekly-meal
+      - POSTGRES_DB=weekly-meal
+      - POSTGRES_PASSWORD=weekly-meal
+
+  redis:
+    image: library/redis:6-alpine
+
+networks:
+  default:
+    external:
+      name: integration_default
