@@ -5,6 +5,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.0",
+        "ext-blackfire": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "symfony/console": "5.2.*",
