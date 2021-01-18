@@ -11,6 +11,8 @@ services:
       - CORS_ENABLED=true
     env_file:
       - ../../.env
+    ports:
+      - 8080
     depends_on:
       - postgres
       - redis
