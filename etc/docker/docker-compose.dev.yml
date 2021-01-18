@@ -16,7 +16,7 @@ services:
       - redis
 
   postgres:
-    image: library/postgres:13-alpine
+    image: library/postgres:12.5-alpine
     environment:
       - POSTGRES_USER=weekly-meal
       - POSTGRES_DB=weekly-meal
