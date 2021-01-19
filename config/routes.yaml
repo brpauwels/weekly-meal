@@ -2,5 +2,20 @@ annotations:
   resource: ../src/Controller/
   type: annotation
 
+home:
+  path: /
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+  defaults:
+    template: home/index.html.twig
+
+login:
+  path: /login
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+  defaults:
+    template: security/login.html.twig
+
 facebook_login:
   path: /login/check-facebook
+
+logout:
+  path: /logout
