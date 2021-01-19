@@ -5,11 +5,11 @@
         function fb_login() {
             FB.getLoginStatus(function (response) {
                 if (response.status === 'connected') {
-                    document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                    document.location = "{{ hwi_oauth_login_url("facebook") }}";
                 } else {
                     FB.login(function (response) {
                         if (response.authResponse) {
-                            document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                            document.location = "{{ hwi_oauth_login_url("facebook") }}";
                         }
                     }, {scope: 'email'});
                 }
