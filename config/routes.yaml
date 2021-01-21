@@ -8,6 +8,12 @@ home:
   defaults:
     template: home/index.html.twig
 
+privacy-policy:
+  path: /privacy-policy
+  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+  defaults:
+    template: privacy/privacy.html.twig
+
 login:
   path: /login
   controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
