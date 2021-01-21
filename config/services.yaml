@@ -40,4 +40,15 @@ services:
     # please note that last definitions always *replace* previous ones
     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
         arguments:
-            - '%env(resolve:DATABASE_URL)%'
+            $pdoOrDsn: '%env(resolve:DATABASE_URL)%'
+
+    EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer:
+
+    EventSauce\EventSourcing\MessageRepository:
+        alias: EventSauce\DoctrineMessageRepository\DoctrineMessageRepository
+
+    EventSauce\DoctrineMessageRepository\DoctrineMessageRepository:
+        arguments:
+            $connection: '@database_connection'
+            $serializer: '@EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer'
+            $tableName: 'domain_messages'
