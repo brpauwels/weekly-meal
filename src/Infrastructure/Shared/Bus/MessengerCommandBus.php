@@ -16,9 +16,9 @@ final class MessengerCommandBus implements CommandBus
 
     private MessageBusInterface $messageBus;
 
-    public function __construct(MessageBusInterface $messageBus)
+    public function __construct(MessageBusInterface $commandBus)
     {
-        $this->messageBus = $messageBus;
+        $this->messageBus = $commandBus;
     }
 
     /**

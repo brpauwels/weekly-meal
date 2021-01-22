@@ -20,6 +20,10 @@ services:
             tags:
                 - { name: messenger.message_handler, bus: query.bus }
 
+        App\Projection\Projector:
+            tags:
+                - { name: projector }
+
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
@@ -43,6 +47,13 @@ services:
             $pdoOrDsn: '%env(resolve:DATABASE_URL)%'
 
     EventSauce\EventSourcing\Serialization\ConstructingMessageSerializer:
+
+    EventSauce\EventSourcing\MessageDispatcher:
+        alias: App\Infrastructure\Shared\EventSauce\TaggedMessageDispatcher
+
+    App\Infrastructure\Shared\EventSauce\TaggedMessageDispatcher:
+        arguments:
+            $consumers: !tagged_iterator projector
 
     EventSauce\EventSourcing\MessageRepository:
         alias: EventSauce\DoctrineMessageRepository\DoctrineMessageRepository

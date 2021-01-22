@@ -23,9 +23,9 @@ final class MessengerQueryBus implements QueryBus
 
     private MessageBusInterface $messageBus;
 
-    public function __construct(MessageBusInterface $messageBus)
+    public function __construct(MessageBusInterface $queryBus)
     {
-        $this->messageBus = $messageBus;
+        $this->messageBus = $queryBus;
     }
 
     /**
