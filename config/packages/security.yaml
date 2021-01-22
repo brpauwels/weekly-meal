@@ -1,8 +1,7 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        oauth:
-            id: hwi_oauth.user.provider.oauth
+        database:
+            id: App\Infrastructure\User\Security\AuthUserProvider
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -10,16 +9,11 @@ security:
         main:
             anonymous: true
             lazy: true
-            oauth:
-                resource_owners:
-                    facebook: "/login/check-facebook"
-                login_path: /login
-                use_forward: false
-                failure_path: /login
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.oauth
+            guard:
+                authenticators:
+                    - App\Infrastructure\User\Security\GoogleAuthenticator
             logout:
-                path: logout
+                path: security.logout
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

@@ -1,31 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <script>
-        function fb_login() {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    document.location = "{{ hwi_oauth_login_url("facebook") }}";
-                } else {
-                    FB.login(function (response) {
-                        if (response.authResponse) {
-                            document.location = "{{ hwi_oauth_login_url("facebook") }}";
-                        }
-                    }, {scope: 'email'});
-                }
-            });
-        }
-    </script>
-
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">Sign in</h1>
 
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous"
-                src="https://connect.facebook.net/nl_BE/sdk.js#xfbml=1&version=v9.0&appId=263094111917256&autoLogAppEvents=1"
-                nonce="a5lbDkDK"></script>
-
-        <div class="fb-login-button pt-md-4 pb-md-4" data-width="" data-size="large" data-button-type="login_with"
-             data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" onlogin="fb_login"></div>
+        <a href="{{ path('security.connect.google.start') }}">Google</a>
     </div>
 {% endblock %}

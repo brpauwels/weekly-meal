@@ -14,14 +14,11 @@ privacy-policy:
   defaults:
     template: privacy/privacy.html.twig
 
-login:
+security.login:
   path: /login
   controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
   defaults:
     template: security/login.html.twig
 
-facebook_login:
-  path: /login/check-facebook
-
-logout:
+security.logout:
   path: /logout

@@ -27,4 +27,14 @@ final class UserReadModel
         $this->id    = $id;
         $this->email = $email;
     }
+
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 }
