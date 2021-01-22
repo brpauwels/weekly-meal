@@ -24,5 +24,4 @@ final class RegisterUserHandler implements CommandHandler
         $user = User::register(UserId::create(), Email::fromString($command->getEmail()));
         $this->userRepository->add($user);
     }
-
 }

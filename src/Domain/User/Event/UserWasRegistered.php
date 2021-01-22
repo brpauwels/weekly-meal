@@ -19,11 +19,17 @@ final class UserWasRegistered implements SerializablePayload
         $this->email  = $email;
     }
 
+    /**
+     * @param array{id: string, email: string} $payload
+     */
     public static function fromPayload(array $payload): SerializablePayload
     {
         return new self(UserId::fromString($payload['id']), Email::fromString($payload['email']));
     }
 
+    /**
+     * @return array{id: string, email: string}
+     */
     public function toPayload(): array
     {
         return [

@@ -29,6 +29,7 @@
         "webmozart/assert": "^1.9"
     },
     "require-dev": {
+        "doctrine/coding-standard": "^8.2",
         "symfony/stopwatch": "^5.2",
         "symfony/web-profiler-bundle": "^5.2"
     },

@@ -28,4 +28,14 @@ final class User implements AggregateRoot
         $this->id    = $event->getUserId();
         $this->email = $event->getEmail();
     }
+
+    public function getId(): UserId
+    {
+        return $this->id;
+    }
+
+    public function getEmail(): Email
+    {
+        return $this->email;
+    }
 }

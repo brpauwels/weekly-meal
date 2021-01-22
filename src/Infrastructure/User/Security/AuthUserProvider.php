@@ -29,7 +29,7 @@ final class AuthUserProvider implements UserProviderInterface
         return new AuthUser($user->getEmail());
     }
 
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $user): AuthUser
     {
         $user = $this->getUser($user->getUsername());
 
@@ -38,14 +38,14 @@ final class AuthUserProvider implements UserProviderInterface
 
     public function supportsClass(string $class): bool
     {
-        return AuthUser::class === $class;
+        return $class === AuthUser::class;
     }
 
     private function getUser(string $email): UserReadModel
     {
         $user = $this->queryBus->dispatch(new FindUserByEmail($email));
 
-        if (null === $user) {
+        if ($user === null) {
             throw new UsernameNotFoundException(sprintf('User "%s" not found.', $email));
         }
 

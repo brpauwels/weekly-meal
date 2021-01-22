@@ -17,8 +17,8 @@ final class EventSauceUserRepository implements UserRepository
 
     public function __construct(
         MessageRepository $messageRepository,
-        MessageDispatcher $dispatcher = null,
-        MessageDecorator $decorator = null
+        ?MessageDispatcher $dispatcher = null,
+        ?MessageDecorator $decorator = null
     ) {
         $this->aggregateRootRepository = new ConstructingAggregateRootRepository(
             User::class,

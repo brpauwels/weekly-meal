@@ -44,7 +44,7 @@ final class GoogleAuthenticator extends SocialAuthenticator
         $this->router         = $router;
     }
 
-    public function start(Request $request, AuthenticationException $authException = null): Response
+    public function start(Request $request, ?AuthenticationException $authException = null): Response
     {
         return new RedirectResponse(
             $this->router->generate('security.login'),
@@ -62,7 +62,7 @@ final class GoogleAuthenticator extends SocialAuthenticator
         return $this->fetchAccessToken($this->getGoogleClient());
     }
 
-    public function getUser($credentials, UserProviderInterface $userProvider): AuthUser
+    public function getUser(mixed $credentials, UserProviderInterface $userProvider): AuthUser
     {
         $googleUser = $this->getGoogleClient()
                            ->fetchUserFromToken($credentials);
@@ -70,12 +70,12 @@ final class GoogleAuthenticator extends SocialAuthenticator
 
         $email = $googleUser->getEmail();
 
-        if (null === $email) {
+        if ($email === null) {
             throw new AuthenticationException('Email is required');
         }
 
         $existingUser = $this->queryBus->dispatch(new FindUserByEmail($email));
-        if (null !== $existingUser) {
+        if ($existingUser !== null) {
             assert($existingUser instanceof UserReadModel);
 
             return new AuthUser($existingUser->getEmail());
