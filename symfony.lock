@@ -135,6 +135,9 @@
     "league/oauth2-google": {
         "version": "3.0.3"
     },
+    "league/period": {
+        "version": "4.11.0"
+    },
     "nyholm/psr7": {
         "version": "1.0",
         "recipe": {

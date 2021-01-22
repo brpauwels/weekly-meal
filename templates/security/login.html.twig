@@ -1,9 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">Sign in</h1>
+{% block main %}
+    <h1>Sign in</h1>
 
-        <a href="{{ path('security.connect.google.start') }}">Google</a>
-    </div>
+    <a href="{{ path('security.connect.google.start') }}">Google</a>
 {% endblock %}

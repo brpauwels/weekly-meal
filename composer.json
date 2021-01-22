@@ -14,6 +14,7 @@
         "eventsauce/eventsauce": "^0.8.2",
         "knpuniversity/oauth2-client-bundle": "^2.7",
         "league/oauth2-google": "^3.0",
+        "league/period": "^4.11",
         "nyholm/psr7": "^1.3",
         "php-http/httplug-bundle": "^1.20",
         "symfony/console": "5.2.*",

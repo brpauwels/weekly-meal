@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ef6f395d177e3f049fd9e526bfc597c",
+    "content-hash": "6b5050e94cab5c4e3f7a5b89ffea86ec",
     "packages": [
         {
             "name": "brick/math",
@@ -2324,6 +2324,92 @@
                 "source": "https://github.com/thephpleague/oauth2-google/tree/3.0.3"
             },
             "time": "2020-07-24T15:16:12+00:00"
+        },
+        {
+            "name": "league/period",
+            "version": "4.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/period.git",
+                "reference": "8a171923aca1f22c68273876c8d45336a9d2110a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/period/zipball/8a171923aca1f22c68273876c8d45336a9d2110a",
+                "reference": "8a171923aca1f22c68273876c8d45336a9d2110a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2.0 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "infection/infection": "^0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Period\\": "src"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Time range API for PHP",
+            "homepage": "http://period.thephpleague.com",
+            "keywords": [
+                "boundaries",
+                "calendar",
+                "collection",
+                "date",
+                "dateinterval",
+                "dateperiod",
+                "datetime",
+                "gap",
+                "intersections",
+                "interval",
+                "period",
+                "range",
+                "schedule",
+                "sequence",
+                "time",
+                "timeline",
+                "unions"
+            ],
+            "support": {
+                "docs": "https://period.thephpleague.com",
+                "issues": "https://github.com/thephpleague/period/issues",
+                "source": "https://github.com/thephpleague/period"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nyamsprod",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-11T19:24:30+00:00"
         },
         {
             "name": "nyholm/psr7",

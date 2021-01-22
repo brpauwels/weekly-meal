@@ -9,8 +9,6 @@ services:
       - VIRTUAL_HOST=weekly-meal.docker
       - VIRTUAL_PORT=8080
       - CORS_ENABLED=true
-    env_file:
-      - ../../.env
     ports:
       - 8080
     depends_on:
