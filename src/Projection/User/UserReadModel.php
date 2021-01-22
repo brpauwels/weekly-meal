@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="projection_user")
  */
-final class UserReadModel
+class UserReadModel
 {
     /**
      * @ORM\Id
@@ -19,7 +19,7 @@ final class UserReadModel
      */
     private string $id;
 
-    /** @ORM\Column(type="string") */
+    /** @ORM\Column(type="string", unique=true) */
     private string $email;
 
     public function __construct(string $id, string $email)
