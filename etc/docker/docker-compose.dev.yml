@@ -15,7 +15,6 @@ services:
       - 8080
     depends_on:
       - postgres
-      - redis
 
   postgres:
     image: library/postgres:12.5-alpine
@@ -23,9 +22,6 @@ services:
       - POSTGRES_USER=weekly-meal
       - POSTGRES_DB=weekly-meal
       - POSTGRES_PASSWORD=weekly-meal
-
-  redis:
-    image: library/redis:6-alpine
 
 networks:
   default:

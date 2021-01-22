@@ -11,9 +11,10 @@ services:
       - CORS_ENABLED=true
     env_file:
       - ../../.env
+    ports:
+      - 8080
     depends_on:
       - postgres
-      - redis
 
   blackfire:
     image: blackfire/blackfire
@@ -29,9 +30,6 @@ services:
       POSTGRES_USER: weekly-meal
       POSTGRES_DB: weekly-meal
       POSTGRES_PASSWORD: weekly-meal
-
-  redis:
-    image: library/redis:6-alpine
 
 networks:
   default:
