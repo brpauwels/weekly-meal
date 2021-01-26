@@ -46,10 +46,7 @@ final class GoogleAuthenticator extends SocialAuthenticator
 
     public function start(Request $request, ?AuthenticationException $authException = null): Response
     {
-        return new RedirectResponse(
-            $this->router->generate('security.login'),
-            Response::HTTP_TEMPORARY_REDIRECT
-        );
+        return new RedirectResponse('/sign-in', Response::HTTP_TEMPORARY_REDIRECT);
     }
 
     public function supports(Request $request): bool
@@ -95,7 +92,7 @@ final class GoogleAuthenticator extends SocialAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey): Response
     {
-        $targetUrl = $this->router->generate('home');
+        $targetUrl = $this->router->generate('vue');
 
         return new RedirectResponse($targetUrl);
     }

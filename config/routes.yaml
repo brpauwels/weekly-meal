@@ -2,17 +2,5 @@ annotations:
   resource: ../src/Controller/
   type: annotation
 
-privacy-policy:
-  path: /privacy-policy
-  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
-  defaults:
-    template: privacy/privacy.html.twig
-
-security.login:
-  path: /login
-  controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
-  defaults:
-    template: security/login.html.twig
-
 security.logout:
   path: /logout

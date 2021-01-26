@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\User\Security;
 
+use JsonSerializable;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-final class AuthUser implements UserInterface
+final class AuthUser implements UserInterface, JsonSerializable
 {
     private string $email;
 
@@ -40,5 +41,12 @@ final class AuthUser implements UserInterface
 
     public function eraseCredentials(): void
     {
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'email' => $this->email,
+        ];
     }
 }
