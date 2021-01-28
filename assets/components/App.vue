@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <div v-if="isLoading">
+    <div class="d-flex justify-content-center py-4">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div v-else>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <router-link class="navbar-brand" to="/">Weekly Meal</router-link>
@@ -22,7 +29,6 @@
                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
               </ul>
             </div>
-            <router-link v-else class="btn btn-outline-success" to="/sign-in">Sign In</router-link>
           </div>
         </div>
       </div>
@@ -37,19 +43,15 @@
 export default {
   name: "App",
   computed: {
+    isLoading() {
+      return this.$store.getters['security/isLoading']
+    },
     user() {
       return this.$store.getters['security/user']
     },
     isAuthenticated() {
       return this.$store.getters['security/isAuthenticated']
     },
-  },
-  beforeMount: function() {
-    let isAuthenticated = JSON.parse(this.$parent.$el.attributes["data-is-authenticated"].value),
-        user = JSON.parse(this.$parent.$el.attributes["data-user"].value);
-
-    let payload = { isAuthenticated: isAuthenticated, user: user };
-    this.$store.dispatch("security/onRefresh", payload);
-  },
+  }
 }
 </script>

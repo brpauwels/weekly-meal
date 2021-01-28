@@ -1,3 +1,5 @@
+import SecurityAPI from "../api/security";
+
 const AUTHENTICATING = "AUTHENTICATING",
   AUTHENTICATING_SUCCESS = "AUTHENTICATING_SUCCESS",
   AUTHENTICATING_ERROR = "AUTHENTICATING_ERROR",
@@ -55,6 +57,16 @@ export default {
     }
   },
   actions: {
+    async login({commit}) {
+      commit(AUTHENTICATING);
+      try {
+        await SecurityAPI.login().then((response) => {
+          commit(AUTHENTICATING_SUCCESS, response.data);
+        });
+      } catch (error) {
+        commit(AUTHENTICATING_ERROR, error);
+      }
+    },
     onRefresh({commit}, payload) {
       commit(PROVIDING_DATA_ON_REFRESH_SUCCESS, payload);
     }

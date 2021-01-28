@@ -10,4 +10,5 @@ return [
     Http\HttplugBundle\HttplugBundle::class => ['all' => true],
     KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    Phpro\ApiProblemBundle\ApiProblemBundle::class => ['all' => true],
 ];

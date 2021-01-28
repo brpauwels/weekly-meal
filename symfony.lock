@@ -189,6 +189,12 @@
     "php-http/stopwatch-plugin": {
         "version": "1.4.0"
     },
+    "phpro/api-problem": {
+        "version": "v1.4.0"
+    },
+    "phpro/api-problem-bundle": {
+        "version": "v1.3.0"
+    },
     "phpstan/phpdoc-parser": {
         "version": "0.4.9"
     },
